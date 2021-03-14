@@ -2,11 +2,11 @@
 
 ## Полезные ссылки.
 
-[Структура html документа]( https://html5book.ru/osnovy-html/)
-[Подключение скриптов](https://learn.javascript.ru/script-async-defer)
-[Обращение к DOM элементам](https://learn.javascript.ru/searching-elements-dom)
-[Содержимое DOM элементов](https://learn.javascript.ru/basic-dom-node-properties)
-[Браузерные события](https://learn.javascript.ru/introduction-browser-events)
+* [Структура html документа]( https://html5book.ru/osnovy-html/)
+* [Подключение скриптов](https://learn.javascript.ru/script-async-defer)
+* [Обращение к DOM элементам](https://learn.javascript.ru/searching-elements-dom)
+* [Содержимое DOM элементов](https://learn.javascript.ru/basic-dom-node-properties)
+* [Браузерные события](https://learn.javascript.ru/introduction-browser-events)
 
 Полезные методы:
 * [split](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/split)
