@@ -2,39 +2,37 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
 buttonField.onclick = function () {
-    let strArray = inputField.value.split("");
-    console.log("Even numbers: " + getEvenNumbers(strArray));
-    console.log("Squares numbers: " + getSquaresNumbers(strArray));
-    console.log("Three Multiples Sum: " + getThreeMultiplesSum(strArray));
+    console.log("Even numbers: " + getEvenNumbers(inputField.value));
+    console.log("Squares numbers: " + getSquaresNumbers(inputField.value));
+    console.log("Three Multiples Sum: " + getThreeMultiplesSum(inputField.value));
 }
 
-function getEvenNumbers(strArray){
-    let evenNumberStr = "";
-    for(let str of strArray){
-        let num = Number(str);
-        if (num % 2 === 0){
-            evenNumberStr += str;
+function getEvenNumbers(inputFieldValue){
+    let evenNumbers = "";
+    for(let char of inputFieldValue){
+        if (char.valueOf() % 2 === 0){
+            evenNumbers += char;
         }
     }
-    return evenNumberStr;
+    return evenNumbers;
 }
 
-function getSquaresNumbers(strArray){
-    let evenNumberStr = "";
-    for(let str of strArray){
-        evenNumberStr += String(Math.pow(Number(str), 2)) + " ";
+function getSquaresNumbers(inputFieldValue){
+    let numbersSquares = "";
+    for(let char of inputFieldValue){
+        numbersSquares += String(Math.pow(char.valueOf(), 2)) + " ";
     }
-    return evenNumberStr;
+    return numbersSquares;
 }
 
-function getThreeMultiplesSum(strArray){
-    let evenNumberStr = 0;
-    for(let str of strArray){
-        let num = Number(str);
+function getThreeMultiplesSum(inputFieldValue){
+    let threeMultiplesSum = 0;
+    for(let char of inputFieldValue){
+        let num = Number(char);
         if (num % 3 === 0){
-            evenNumberStr += num;
+            threeMultiplesSum += num;
         }
     }
-    return evenNumberStr;
+    return threeMultiplesSum;
 }
 });
