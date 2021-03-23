@@ -1,3 +1,6 @@
+
+document.addEventListener("DOMContentLoaded", ()=> {
+
 buttonField.onclick = function () {
     let strArray = inputField.value.split("");
     console.log("Even numbers: " + getEvenNumbers(strArray));
@@ -34,6 +37,4 @@ function getThreeMultiplesSum(strArray){
     }
     return evenNumberStr;
 }
-
-
-//document.addEventListener("click", eventHandler);
+});
