@@ -1,42 +1,62 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
-    buttonField.addEventListener('click', writeToConsole);
+    buttonField.addEventListener('click', display);
 
-    function writeToConsole() {
-    console.log("Even numbers: " + getEvenNumbers(inputField.value));
-    console.log("Squares numbers: " + getSquaresNumbers(inputField.value));
-    console.log("Three Multiples Sum: " + getThreeMultiplesSum(inputField.value));
+    function display() {
+        displayNotEven();
+        displaySquares();
+        displyThreeMultiplesSum();
+    //console.log("Three Multiples Sum: " + getThreeMultiplesSum(inputField.value));
     }
 
-    function getEvenNumbers(inputFieldValue){
-    
-        let evenNumbers = "";
-   
-        for(let char of inputFieldValue){
-            if (char.valueOf() % 2 === 0){
-                evenNumbers += char;
+    function displayNotEven(){
+        let numbers = inputField.value.split("");
+        
+        let notEvenNumbers = numbers.filter(function(number){
+            return number.valueOf() % 2 !== 0;
+        });
+
+        let result = "";
+
+        for(let elem of notEvenNumbers){
+            result += String(elem);
+        }
+
+        console.log("Not even numbers: " + result);
+    }
+
+    function displaySquares(){
+        let numbers = inputField.value.split("");
+        
+        let squares = numbers.map(function(number){
+            return Math.pow(number, 2);
+        });
+
+        let result = "";
+
+        for(let square of squares){
+            result += square + " ";
+        }
+
+        console.log("Squares: " + result);
+    }
+
+    function displyThreeMultiplesSum(){
+        let numbers = inputField.value.split("");
+        
+        let threeMultiplesSum = numbers.reduce(function(sumStr, currentNumberStr){
+            let num = Number(currentNumberStr);
+            let sum = Number(sumStr);
+
+            if(num % 3 === 0){
+                sum += num;
             }
-        }
-    return evenNumbers;
-    }
 
-    function getSquaresNumbers(inputFieldValue){
-        let numbersSquares = "";
-        for(let char of inputFieldValue){
-            numbersSquares += String(Math.pow(char.valueOf(), 2)) + " ";
-        }
-        return numbersSquares;
-    }
+            sumStr = String(sum);
+           
+            return sumStr;
+        }, 0);
 
-
-    function getThreeMultiplesSum(inputFieldValue){
-        let threeMultiplesSum = 0;
-        for(let char of inputFieldValue){
-            let num = Number(char);
-            if (num % 3 === 0){
-                threeMultiplesSum += num;
-            }
-        }
-        return threeMultiplesSum;
+        console.log("Three Multiples Sum: " + threeMultiplesSum);
     }
 });
