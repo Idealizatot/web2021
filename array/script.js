@@ -4,43 +4,47 @@ document.addEventListener("DOMContentLoaded", ()=> {
     buttonTeg.addEventListener('click', display);
 
     function display() {
-        let numbers = inputField.value.split("");
+        let numbers = convertToNumbers(inputField.value.split(""));
 
         displayNotEven(numbers);
         displaySquares(numbers);
         displyThreeMultiplesSum(numbers);
     }
 
+    function convertToNumbers(numbersStr){
+        let numbers = [];
+        
+        for(let i = 0; i < numbersStr.length; i++){
+            numbers[i] = Number(numbersStr[i]);
+        }
+
+        return numbers;
+    }
+
     function displayNotEven(numbers){
         let notEvenNumbers = numbers.filter(number =>
-            number.valueOf() % 2 !== 0
+            number % 2 !== 0
         );
 
-        console.log("Not even numbers: " + notEvenNumbers.join());
+        console.log("Not even numbers: " + notEvenNumbers.join(""));
     }
 
     function displaySquares(numbers){
-        
         let squares = numbers.map(number =>
             Math.pow(number, 2)
         );
 
-        console.log("Squares: " + squares.join(""));
+        console.log("Squares: " + squares.join(" "));
     }
 
     function displyThreeMultiplesSum(numbers){
-        
-        let threeMultiplesSum = numbers.reduce((sumStr, currentNumberStr) => {
-            let num = Number(currentNumberStr);
-            let sum = Number(sumStr);
+        let threeMultiplesSum = numbers.reduce((sum, currentNumber) => {
 
-            if(num % 3 === 0){
-                sum += num;
+            if(currentNumber % 3 === 0){
+                sum += currentNumber;
             }
 
-            sumStr = String(sum);
-           
-            return sumStr;
+            return sum;
         }, 0);
 
         console.log("Three Multiples Sum: " + threeMultiplesSum);
