@@ -1,50 +1,36 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
-    buttonField.addEventListener('click', display);
+    let buttonTeg = document.getElementById("buttonField");
+    buttonTeg.addEventListener('click', display);
 
     function display() {
-        displayNotEven();
-        displaySquares();
-        displyThreeMultiplesSum();
-    //console.log("Three Multiples Sum: " + getThreeMultiplesSum(inputField.value));
+        let numbers = inputField.value.split("");
+
+        displayNotEven(numbers);
+        displaySquares(numbers);
+        displyThreeMultiplesSum(numbers);
     }
 
-    function displayNotEven(){
-        let numbers = inputField.value.split("");
-        
-        let notEvenNumbers = numbers.filter(function(number){
-            return number.valueOf() % 2 !== 0;
-        });
+    function displayNotEven(numbers){
+        let notEvenNumbers = numbers.filter(number =>
+            number.valueOf() % 2 !== 0
+        );
 
-        let result = "";
-
-        for(let elem of notEvenNumbers){
-            result += String(elem);
-        }
-
-        console.log("Not even numbers: " + result);
+        console.log("Not even numbers: " + notEvenNumbers.join());
     }
 
-    function displaySquares(){
-        let numbers = inputField.value.split("");
+    function displaySquares(numbers){
         
-        let squares = numbers.map(function(number){
-            return Math.pow(number, 2);
-        });
+        let squares = numbers.map(number =>
+            Math.pow(number, 2)
+        );
 
-        let result = "";
-
-        for(let square of squares){
-            result += square + " ";
-        }
-
-        console.log("Squares: " + result);
+        console.log("Squares: " + squares.join(""));
     }
 
-    function displyThreeMultiplesSum(){
-        let numbers = inputField.value.split("");
+    function displyThreeMultiplesSum(numbers){
         
-        let threeMultiplesSum = numbers.reduce(function(sumStr, currentNumberStr){
+        let threeMultiplesSum = numbers.reduce((sumStr, currentNumberStr) => {
             let num = Number(currentNumberStr);
             let sum = Number(sumStr);
 
