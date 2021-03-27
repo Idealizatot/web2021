@@ -4,21 +4,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
     buttonTeg.addEventListener('click', display);
 
     function display() {
-        let numbers = convertToNumbers(inputField.value.split(""));
+        let numbers = inputField.value.split("").map(_number => Number(_number));
 
         displayNotEven(numbers);
         displaySquares(numbers);
         displyThreeMultiplesSum(numbers);
-    }
-
-    function convertToNumbers(numbersStr){
-        let numbers = [];
-        
-        for(let i = 0; i < numbersStr.length; i++){
-            numbers[i] = Number(numbersStr[i]);
-        }
-
-        return numbers;
     }
 
     function displayNotEven(numbers){
