@@ -1,0 +1,95 @@
+button {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.number0 {
+  top: 235px;
+  left: 300px;
+}
+
+.number1 {
+  top: 70px;
+  left: 300px;
+}
+
+.number2 {
+  top: 70px;
+  left: 375px;
+}
+
+.number3 {
+  top: 70px;
+  left: 450px;
+}
+
+.number4 {
+  top: 125px;
+  left: 300px;
+}
+
+.number5 {
+  top: 125px;
+  left: 375px;
+}
+
+.number6 {
+  top: 125px;
+  left: 450px;
+}
+
+.number7 {
+  top: 180px;
+  left: 300px;
+}
+
+.number8 {
+  top: 180px;
+  left: 375px;
+}
+
+.number9 {
+  top: 180px;
+  left: 450px;
+}
+
+.cancel {
+  top: 70px;
+  left: 525px;
+}
+
+.equal {
+  top: 125px;
+  left: 525px;
+}
+
+.multiplication {
+  top: 180px;
+  left: 525px;
+}
+
+.division {
+  top: 235px;
+  left: 525px;
+}
+
+.addition {
+  top: 235px;
+  left: 375px;
+}
+
+.subtraction {
+  top: 235px;
+  left: 450px;
+}
+
+output {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  font-size: 30px;
+  top: 20px;
+  left: 300px;
+}

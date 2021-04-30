@@ -1,55 +1,69 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
-    addEventListeners();
+    startListeningNumbersButtons();
+    startListeningFunctionalButtons();
 
-    function addEventListeners(){
-        for(let i = 0; i < 10; i++){
-            let buttonId = "button" + i;
-            document.getElementById(buttonId)
-            .addEventListener('click', (event, innerText) => 
-                eventHandler(event, document.getElementById(buttonId).innerText));
+    function startListeningNumbersButtons(){
+        let numbersButtons = document.getElementsByClassName("number");
+        
+        for(let i = 0; i < numbersButtons.length; i++){
+            numbersButtons[i].addEventListener('click', (event, innerText) => 
+                    eventHandler(event, numbersButtons[i].innerText));
+        }
+
+        function eventHandler(event, innerText){
+            let innerHTML = document.getElementById("expression").innerHTML;
+            document.getElementById("expression").innerHTML += innerText;
+        }
+    }
+
+    function startListeningFunctionalButtons(){
+        let functionalButtons = document.getElementsByClassName("functional");
+        
+        for(let i = 0; i < functionalButtons.length; i++){
+            functionalButtons[i].addEventListener('click', (event, innerText) => 
+                    eventHandler(event, functionalButtons[i].innerText));
+        }
+
+        function eventHandler(event, innerText){
+            if(innerText == "*"){
+                console.log("Умножение");
+            } else if(innerText == "/"){
+                console.log("Деление");
+            } else if(innerText == "+"){
+                console.log("Сложение");
+            }else if(innerText == "-"){
+                console.log("Вычитание");
+            } else if(innerText == "="){
+                console.log("Равно");
+            } else{
+                let innerHTML = document.getElementById("expression").innerHTML;
+                document.getElementById("expression").innerHTML = "";
             }
-
-        document.getElementById("buttonCancel")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonCancel").innerText));
-
-        document.getElementById("buttonEqual")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonEqual").innerText));
-
-        document.getElementById("buttonMultiplication")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonMultiplication").innerText));
-
-        document.getElementById("buttonAddition")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonAddition").innerText));
-
-        document.getElementById("buttonSubtraction")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonSubtraction").innerText));
-
-        document.getElementById("buttonDivision")
-        .addEventListener('click', (event, innerText) => 
-        eventHandler(event, document.getElementById("buttonDivision").innerText));
-    };
-
-    function eventHandler(event, innerText){
-        if (innerText === "="){
-            console.log("=");
-        } else if(innerText === "+") {
-            console.log("+");
-        } else if(innerText === "-") {
-            console.log("-");
-        } else if(innerText === "*") {
-            console.log("*");
-        } else if(innerText === "/") {
-            console.log("/");
-        } else if(innerText === "C"){
-            console.log("C");
-        } else{
-            document.getElementById("expression").innerHTML = innerText;
         }
     }
 });
+
+
+     // class ButtonNumber {
+        
+    //     constructor(className) {
+    //       this.className = className;
+    //     }
+      
+    //     StartListening(){
+    //         document.getElementsByClassName(this.className)
+    //         .addEventListener('click', (event, innerText) => 
+    //         eventHandler(event, document.getElementById(this.className).innerText));
+    //     }
+
+    //     eventHandler(event, innerText){
+    //         let innerHTML = document.getElementById("expression").innerHTML;
+    //         document.getElementById("expression").innerHTML += innerText;
+    //     }
+    // }
+
+    
+    //   new ButtonNumber("number0").StartListening();
+    //   new ButtonNumber("number1").StartListening();
+    //   new ButtonNumber("button2").StartListening();
