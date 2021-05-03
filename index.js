@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
+    let result = 0;
+    
     startListeningNumbersButtons();
     startListeningFunctionalButtons();
 
@@ -7,13 +9,13 @@ document.addEventListener("DOMContentLoaded", ()=> {
         let numbersButtons = document.getElementsByClassName("number");
         
         for(let i = 0; i < numbersButtons.length; i++){
-            numbersButtons[i].addEventListener('click', (event, innerText) => 
-                    eventHandler(event, numbersButtons[i].innerText));
+            numbersButtons[i].addEventListener('click', (event, value) => 
+                    eventHandler(event, numbersButtons[i].dataset.value));
         }
 
-        function eventHandler(event, innerText){
+        function eventHandler(event, numberValue){
             let innerHTML = document.getElementById("expression").innerHTML;
-            document.getElementById("expression").innerHTML += innerText;
+            document.getElementById("expression").innerHTML += numberValue;
         }
     }
 

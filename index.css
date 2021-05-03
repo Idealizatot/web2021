@@ -5,6 +5,16 @@ button {
   font-size: 30px;
 }
 
+.result {
+  top: 50px;
+  left: 300px;
+}
+
+.expression{
+  top: 50px;
+  left: 300px;
+}
+
 .number0 {
   top: 235px;
   left: 300px;
