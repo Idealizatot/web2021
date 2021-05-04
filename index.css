@@ -1,52 +1,59 @@
+:root {
+  --top: 70px;
+  --left: 300px;
+  --buttonWidth: 70px;
+  --buttonHeight: 50px;
+  --buttonfontSize: 70px;
+}
+
 button {
   position: absolute;
-  width: 70px;
-  height: 50px;
-  font-size: 30px;
+  width: var(--buttonWidth);
+  height: var(--buttonHeight);
+  font-size: var(--buttonfontSize);
+}
+
+.expression {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  font-size: var(--buttonfontSize);
 }
 
 .result {
-  top: 50px;
-  left: 300px;
-}
-
-.expression{
-  top: 50px;
-  left: 300px;
-}
-
-.number0 {
-  top: 235px;
-  left: 300px;
+  position: absolute;
+  top: calc(var(--top) + var(--buttonHeight) + 5px);
+  left: var(--left);
+  font-size: var(--buttonfontSize);
 }
 
 .number1 {
-  top: 70px;
-  left: 300px;
+  top: calc((var(--top) + var(--buttonHeight));
+  left: var(--left);
 }
 
 .number2 {
-  top: 70px;
+  top: var(--dect);
   left: 375px;
 }
 
 .number3 {
-  top: 70px;
+  top: var(--dect);
   left: 450px;
 }
 
 .number4 {
-  top: 125px;
+  top: calc(var(--dect) + 55px);
   left: 300px;
 }
 
 .number5 {
-  top: 125px;
+  top: calc(var(--dect) + 55px);
   left: 375px;
 }
 
 .number6 {
-  top: 125px;
+  top: calc(var(--dect) + 55px);
   left: 450px;
 }
 
@@ -63,6 +70,11 @@ button {
 .number9 {
   top: 180px;
   left: 450px;
+}
+
+.number0 {
+  top: 235px;
+  left: 300px;
 }
 
 .cancel {
@@ -95,11 +107,11 @@ button {
   left: 450px;
 }
 
-output {
+/* output {
   position: absolute;
   width: 70px;
   height: 50px;
   font-size: 30px;
   top: 20px;
   left: 300px;
-}
+} */
