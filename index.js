@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=> {
 
-    let result = 0;
+    let Value = 0;
+    let Actoin = "";
     
     startListeningNumbersButtons();
     startListeningFunctionalButtons();
@@ -14,7 +15,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }
 
         function eventHandler(event, numberValue){
-            let innerHTML = document.getElementById("expression").innerHTML;
+            if(document.getElementById("expression").innerHTML == "0"){
+                document.getElementById("expression").innerHTML = "";
+            }
             document.getElementById("expression").innerHTML += numberValue;
         }
     }
@@ -24,24 +27,41 @@ document.addEventListener("DOMContentLoaded", ()=> {
         
         for(let i = 0; i < functionalButtons.length; i++){
             functionalButtons[i].addEventListener('click', (event, innerText) => 
-                    eventHandler(event, functionalButtons[i].innerText));
+                    eventHandler(event, functionalButtons[i].dataset.value));
         }
 
-        function eventHandler(event, innerText){
-            if(innerText == "*"){
-                console.log("Умножение");
-            } else if(innerText == "/"){
-                console.log("Деление");
-            } else if(innerText == "+"){
-                console.log("Сложение");
-            }else if(innerText == "-"){
-                console.log("Вычитание");
-            } else if(innerText == "="){
-                console.log("Равно");
+        function eventHandler(event, action){
+            document.getElementById("expression").innerHTML  = "";
+            Action = action;
+
+            if(action === "*"){
+                Action = action;
+                Value = +document.getElementById("expression").innerHTML;
+            } else if(action === "/"){
+                Action = action;
+                Value = +document.getElementById("expression").innerHTML;
+            } else if(action === "+"){
+                Action = action;
+                Value = +document.getElementById("expression").innerHTML;
+            }else if(action === "-"){
+                Action = action;
+                Value = +document.getElementById("expression").innerHTML;
+            } else if(action === "="){
+                if(Actoin === "*"){
+                    document.getElementById("result").innerHTML = Value * +document.getElementById("result").innerHTML; 
+                }else if(Actoin === "/"){
+                    document.getElementById("result").innerHTML = Value / +document.getElementById("result").innerHTML; 
+                }else if(Actoin === "+"){
+                    document.getElementById("result").innerHTML = Value + +document.getElementById("result").innerHTML; 
+                }else if(Actoin === "-"){
+                    document.getElementById("result").innerHTML = Value - +document.getElementById("result").innerHTML; 
+                }
             } else{
-                let innerHTML = document.getElementById("expression").innerHTML;
+                //let innerHTML = document.getElementById("expression").innerHTML;
                 document.getElementById("expression").innerHTML = "";
             }
+
+            console.log(Actoin);
         }
     }
 });
