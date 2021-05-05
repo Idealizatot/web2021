@@ -1,110 +1,113 @@
 :root {
   --top: 70px;
   --left: 300px;
-  --buttonWidth: 70px;
-  --buttonHeight: 50px;
-  --buttonfontSize: 70px;
+  --buttonfontSize: 50px;
+  --buttonSize: 60px;
 }
 
 button {
   position: absolute;
-  width: var(--buttonWidth);
-  height: var(--buttonHeight);
+  width: var(--buttonSize);
+  height: var(--buttonSize);
   font-size: var(--buttonfontSize);
+  /* text-align: center;
+  vertical-align: middle; */
 }
 
 .expression {
   position: absolute;
-  top: var(--top);
+  top: calc(var(--top) / 2);
   left: var(--left);
   font-size: var(--buttonfontSize);
 }
 
 .result {
   position: absolute;
-  top: calc(var(--top) + var(--buttonHeight) + 5px);
+  top: calc(var(--top) / 2 + var(--buttonfontSize));
   left: var(--left);
   font-size: var(--buttonfontSize);
+  color: rgb(102, 102, 102);
 }
 
 .number1 {
-  top: calc((var(--top) + var(--buttonHeight));
-  left: var(--left);
+  position: absolute;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 1));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 0);
 }
 
 .number2 {
-  top: var(--dect);
-  left: 375px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 1));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 1);
 }
 
 .number3 {
-  top: var(--dect);
-  left: 450px;
-}
-
-.number4 {
-  top: calc(var(--dect) + 55px);
-  left: 300px;
-}
-
-.number5 {
-  top: calc(var(--dect) + 55px);
-  left: 375px;
-}
-
-.number6 {
-  top: calc(var(--dect) + 55px);
-  left: 450px;
-}
-
-.number7 {
-  top: 180px;
-  left: 300px;
-}
-
-.number8 {
-  top: 180px;
-  left: 375px;
-}
-
-.number9 {
-  top: 180px;
-  left: 450px;
-}
-
-.number0 {
-  top: 235px;
-  left: 300px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 1));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 2);
 }
 
 .cancel {
-  top: 70px;
-  left: 525px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 1));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 3);
+}
+
+.number4 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 2));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 0);
+}
+
+.number5 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 2));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 1);
+}
+
+.number6 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 2));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 2);
 }
 
 .equal {
-  top: 125px;
-  left: 525px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 2));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 3);
+}
+
+.number7 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 3));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 0);
+}
+
+.number8 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 3));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 1);
+}
+
+.number9 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 3));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 2);
 }
 
 .multiplication {
-  top: 180px;
-  left: 525px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 3));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 3);
 }
 
-.division {
-  top: 235px;
-  left: 525px;
+.number0 {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 4));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 0);
 }
 
 .addition {
-  top: 235px;
-  left: 375px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 4));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 1);
 }
 
 .subtraction {
-  top: 235px;
-  left: 450px;
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 4));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 2);
+}
+
+.division {
+  top: calc((var(--top) + (var(--buttonfontSize) + 15px) * 4));
+  left: calc(var(--left) + (var(--buttonfontSize) + 15px) * 3);
 }
 
 /* output {
