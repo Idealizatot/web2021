@@ -31,24 +31,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }
 
         function eventHandler(event, action){
-           
-            if(action === "*"){
-                Value = +document.getElementById("expression").innerHTML;
-                document.getElementById("expression").innerHTML  = "";
-                Actoin = action;
-            }else if(action === "/"){
-                Value = +document.getElementById("expression").innerHTML;
-                document.getElementById("expression").innerHTML  = "";
-                Actoin = action;
-            } else if(action === "+"){
-                Value = +document.getElementById("expression").innerHTML;
-                document.getElementById("expression").innerHTML  = "";
-                Actoin = action;
-            }else if(action === "-"){
-                Value = +document.getElementById("expression").innerHTML;
-                document.getElementById("expression").innerHTML  = "";
-                Actoin = action;
-            }else if(action === "="){
+            if(action === "="){
                 if(Actoin === "*"){
                     document.getElementById("expression").innerHTML = Value * +document.getElementById("expression").innerHTML; 
                 }else if(Actoin === "/"){
@@ -58,12 +41,16 @@ document.addEventListener("DOMContentLoaded", ()=> {
                 }else if(Actoin === "-"){
                     document.getElementById("expression").innerHTML = Value - +document.getElementById("expression").innerHTML; 
                 }
-            } else{
-                //let innerHTML = document.getElementById("expression").innerHTML;
+            } else if(action === "C"){
                 document.getElementById("expression").innerHTML = "";
+                Actoin = "";
+                Value = 0;
             }
-
-            //console.log(Actoin);
+            else{
+                Value = +document.getElementById("expression").innerHTML;
+                document.getElementById("expression").innerHTML  = "";
+                Actoin = action;
+            }
         }
     }
 });

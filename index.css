@@ -16,7 +16,7 @@ button {
 
 .expression {
   position: absolute;
-  top: calc(var(--top) / 2);
+  top: calc(var(--top));
   left: var(--left);
   font-size: var(--buttonfontSize);
 }
