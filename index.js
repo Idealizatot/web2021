@@ -31,61 +31,39 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }
 
         function eventHandler(event, action){
-            document.getElementById("expression").innerHTML  = "";
-            Action = action;
-
+           
             if(action === "*"){
-                Action = action;
                 Value = +document.getElementById("expression").innerHTML;
-            } else if(action === "/"){
-                Action = action;
+                document.getElementById("expression").innerHTML  = "";
+                Actoin = action;
+            }else if(action === "/"){
                 Value = +document.getElementById("expression").innerHTML;
+                document.getElementById("expression").innerHTML  = "";
+                Actoin = action;
             } else if(action === "+"){
-                Action = action;
                 Value = +document.getElementById("expression").innerHTML;
+                document.getElementById("expression").innerHTML  = "";
+                Actoin = action;
             }else if(action === "-"){
-                Action = action;
                 Value = +document.getElementById("expression").innerHTML;
-            } else if(action === "="){
+                document.getElementById("expression").innerHTML  = "";
+                Actoin = action;
+            }else if(action === "="){
                 if(Actoin === "*"){
-                    document.getElementById("result").innerHTML = Value * +document.getElementById("result").innerHTML; 
+                    document.getElementById("expression").innerHTML = Value * +document.getElementById("expression").innerHTML; 
                 }else if(Actoin === "/"){
-                    document.getElementById("result").innerHTML = Value / +document.getElementById("result").innerHTML; 
+                    document.getElementById("expression").innerHTML = Value / +document.getElementById("expression").innerHTML; 
                 }else if(Actoin === "+"){
-                    document.getElementById("result").innerHTML = Value + +document.getElementById("result").innerHTML; 
+                    document.getElementById("expression").innerHTML = Value + +document.getElementById("expression").innerHTML; 
                 }else if(Actoin === "-"){
-                    document.getElementById("result").innerHTML = Value - +document.getElementById("result").innerHTML; 
+                    document.getElementById("expression").innerHTML = Value - +document.getElementById("expression").innerHTML; 
                 }
             } else{
                 //let innerHTML = document.getElementById("expression").innerHTML;
                 document.getElementById("expression").innerHTML = "";
             }
 
-            console.log(Actoin);
+            //console.log(Actoin);
         }
     }
 });
-
-
-     // class ButtonNumber {
-        
-    //     constructor(className) {
-    //       this.className = className;
-    //     }
-      
-    //     StartListening(){
-    //         document.getElementsByClassName(this.className)
-    //         .addEventListener('click', (event, innerText) => 
-    //         eventHandler(event, document.getElementById(this.className).innerText));
-    //     }
-
-    //     eventHandler(event, innerText){
-    //         let innerHTML = document.getElementById("expression").innerHTML;
-    //         document.getElementById("expression").innerHTML += innerText;
-    //     }
-    // }
-
-    
-    //   new ButtonNumber("number0").StartListening();
-    //   new ButtonNumber("number1").StartListening();
-    //   new ButtonNumber("button2").StartListening();
