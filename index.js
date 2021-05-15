@@ -33,9 +33,12 @@ function checkClickForNumber(btn) {
 function checkClickForAction(btn) {
     if (!actionType) {
         lastBuffer = buffer;
+    } else if (btn.dataset.value === actionType){
+        return;
+    } else if (btn.dataset.value === 'C'){
+        lastBuffer = getResult(lastBuffer, buffer, btn.dataset.value);
     } else {
-        lastBuffer = getResult(lastBuffer, buffer, 
-            btn.dataset.value === 'C' ? 'C' : actionType);
+        lastBuffer = getResult(lastBuffer, buffer, actionType);
     }
 
     if (btn.dataset.value === 'C'){
@@ -43,18 +46,24 @@ function checkClickForAction(btn) {
     } else {
         actionType = btn.dataset.value;
     }
+
+    if (btn.dataset.value === '='){
+        buffer = lastBuffer;
+    } else {
+        buffer = '';
+    }
     
-    buffer = '';
-    document.getElementById("expression").innerHTML = lastBuffer;   
+    document.getElementById("expression").innerHTML = lastBuffer;  
 }
 
 function getResult(a, b, fn) {
+
     const actions = {
         '+' : (a, b) => a + b,
         '-' : (a, b) => a - b,
         '*' : (a, b) => a * b,
         '/' : (a, b) => a / b,
-        '=' : () => lastBuffer,
+        '=' : (a) => b,
         'C' : () => ''
     };
 
