@@ -33,12 +33,14 @@ function checkClickForNumber(btn) {
 function checkClickForAction(btn) {
     if (!actionType) {
         lastBuffer = buffer;
-        actionType = btn.dataset.value;
-    } else if (btn.dataset.value === 'C'){
-        lastBuffer = '';
+    } else {
+        lastBuffer = getResult(lastBuffer, buffer, 
+            btn.dataset.value === 'C' ? 'C' : actionType);
+    }
+
+    if (btn.dataset.value === 'C'){
         actionType = '';
     } else {
-        lastBuffer = getResult(lastBuffer, buffer, actionType);
         actionType = btn.dataset.value;
     }
     
