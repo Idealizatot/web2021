@@ -26,25 +26,35 @@ function setFnForActions() {
 }
 
 function checkClickForNumber(btn) {
+
+    if(buffer === '0'){
+        buffer = '';
+    }
+
     buffer += btn.dataset.value; 
+
     document.getElementById("expression").innerHTML = buffer;   
 }
 
 function checkClickForAction(btn) {
     if (!actionType) {
-        lastBuffer = buffer;
-    } else if (btn.dataset.value === actionType){
+        if (btn.dataset.value === 'C'){
+            lastBuffer = getResult(lastBuffer, buffer, btn.dataset.value);
+            actionType = '';
+        } else {
+            lastBuffer = buffer;
+            actionType = btn.dataset.value;
+        }
+    } else if (actionType === btn.dataset.value ){
         return;
-    } else if (btn.dataset.value === 'C'){
-        lastBuffer = getResult(lastBuffer, buffer, btn.dataset.value);
     } else {
-        lastBuffer = getResult(lastBuffer, buffer, actionType);
-    }
-
-    if (btn.dataset.value === 'C'){
-        actionType = '';
-    } else {
-        actionType = btn.dataset.value;
+        if (btn.dataset.value === 'C'){
+            lastBuffer = getResult(lastBuffer, buffer, btn.dataset.value);
+            actionType = '';
+        } else {
+            lastBuffer = getResult(lastBuffer, buffer, actionType);
+            actionType = btn.dataset.value;
+        }
     }
 
     if (btn.dataset.value === '='){
@@ -53,7 +63,11 @@ function checkClickForAction(btn) {
         buffer = '';
     }
     
-    document.getElementById("expression").innerHTML = lastBuffer;  
+    if(btn.dataset.value === 'C'){
+        document.getElementById("expression").innerHTML = 0;  
+    } else {
+        document.getElementById("expression").innerHTML = lastBuffer; 
+    } 
 }
 
 function getResult(a, b, fn) {
