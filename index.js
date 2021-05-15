@@ -1,61 +1,3 @@
-// document.addEventListener("DOMContentLoaded", ()=> {
-
-//     let Value = 0;
-//     let Actoin = "";
-    
-//     startListeningNumbersButtons();
-//     startListeningFunctionalButtons();
-
-//     function startListeningNumbersButtons(){
-//         let numbersButtons = document.getElementsByClassName("number");
-        
-//         for(let i = 0; i < numbersButtons.length; i++){
-//             numbersButtons[i].addEventListener('click', (event, value) => 
-//                     eventHandler(event, numbersButtons[i].dataset.value));
-//         }
-
-//         function eventHandler(event, numberValue){
-//             if(document.getElementById("expression").innerHTML == "0"){
-//                 document.getElementById("expression").innerHTML = "";
-//             }
-//             document.getElementById("expression").innerHTML += numberValue;
-//         }
-//     }
-
-//     function startListeningFunctionalButtons(){
-//         let functionalButtons = document.getElementsByClassName("functional");
-        
-//         for(let i = 0; i < functionalButtons.length; i++){
-//             functionalButtons[i].addEventListener('click', (event, innerText) => 
-//                     eventHandler(event, functionalButtons[i].dataset.value));
-//         }
-
-//         function eventHandler(event, action){
-//             if(action === "="){
-//                 if(Actoin === "*"){
-//                     document.getElementById("expression").innerHTML = Value * +document.getElementById("expression").innerHTML; 
-//                 }else if(Actoin === "/"){
-//                     document.getElementById("expression").innerHTML = Value / +document.getElementById("expression").innerHTML; 
-//                 }else if(Actoin === "+"){
-//                     document.getElementById("expression").innerHTML = Value + +document.getElementById("expression").innerHTML; 
-//                 }else if(Actoin === "-"){
-//                     document.getElementById("expression").innerHTML = Value - +document.getElementById("expression").innerHTML; 
-//                 }
-//             } else if(action === "C"){
-//                 document.getElementById("expression").innerHTML = "";
-//                 Actoin = "";
-//                 Value = 0;
-//             }
-//             else{
-//                 Value = +document.getElementById("expression").innerHTML;
-//                 document.getElementById("expression").innerHTML  = "";
-//                 Actoin = action;
-//             }
-//         }
-//     }
-// });
-
-
 document.addEventListener("DOMContentLoaded", ()=> {
     setFnForNumbers();
     setFnForActions();
@@ -91,13 +33,16 @@ function checkClickForNumber(btn) {
 function checkClickForAction(btn) {
     if (!actionType) {
         lastBuffer = buffer;
-    } else{
+        actionType = btn.dataset.value;
+    } else if (btn.dataset.value === 'C'){
+        lastBuffer = '';
+        actionType = '';
+    } else {
         lastBuffer = getResult(lastBuffer, buffer, actionType);
+        actionType = btn.dataset.value;
     }
     
-    actionType = btn.dataset.value;
     buffer = '';
-
     document.getElementById("expression").innerHTML = lastBuffer;   
 }
 
@@ -118,11 +63,11 @@ function division(a, b) {
 }
 
 function cancel(a, b) {
-    return "";
+    return '0';
 }
 
 function equal(a, b) {
-    return "";
+    return lastBuffer;
 }
 
 function getResult(a, b, fn) {
@@ -131,6 +76,7 @@ function getResult(a, b, fn) {
         '-' : subtraction,
         '*' : multiplication,
         '/' : division,
+        '=' : equal
     };
 
     return actions[fn](+a, +b);
