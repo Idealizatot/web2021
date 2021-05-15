@@ -46,37 +46,14 @@ function checkClickForAction(btn) {
     document.getElementById("expression").innerHTML = lastBuffer;   
 }
 
-function addition(a, b) {
-    return a + b;
-}
-
-function subtraction(a, b) {
-    return a - b;
-}
-
-function multiplication(a, b) {
-    return a * b;
-}
-
-function division(a, b) {
-    return a / b;
-}
-
-function cancel(a, b) {
-    return '0';
-}
-
-function equal(a, b) {
-    return lastBuffer;
-}
-
 function getResult(a, b, fn) {
     const actions = {
-        '+' : addition,
-        '-' : subtraction,
-        '*' : multiplication,
-        '/' : division,
-        '=' : equal
+        '+' : (a, b) => a + b,
+        '-' : (a, b) => a - b,
+        '*' : (a, b) => a * b,
+        '/' : (a, b) => a / b,
+        '=' : () => lastBuffer,
+        'C' : () => ''
     };
 
     return actions[fn](+a, +b);
